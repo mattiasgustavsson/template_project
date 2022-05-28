@@ -49,7 +49,7 @@ Using WAjic:
 ```
 You can embed asset files in the process with the -embed parameter. 
 
-A WebAssembly build environment is required. You can download it (for Windows) here: [releases/tag/wasm-env]([../../releases/tag/wasm-env](https://github.com/mattiasgustavsson/dos-like/releases/tag/wasm-env).
+A WebAssembly build environment is required. You can download it (for Windows) here: [wasm-env](https://github.com/mattiasgustavsson/dos-like/releases/tag/wasm-env).
 Unzip it so that the `wasm` folder in the zip file is at your repository root.
 
 The wasm build environment is a compact distribution of [node](https://nodejs.org/en/download/), [clang/wasm-ld](https://releases.llvm.org/download.html),

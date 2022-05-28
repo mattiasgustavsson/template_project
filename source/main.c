@@ -31,8 +31,6 @@ int main( int argc, char** argv ) {
 
 
 // pass-through so the program will build with either /SUBSYSTEM:WINDOWS or /SUBSYSTEM:CONSOLE
-#pragma comment( lib, "user32")
-#pragma comment( lib, "gdi32")
 #if defined( _WIN32 ) && !defined( __TINYC__ )
     #ifdef __cplusplus 
         extern "C" int __stdcall WinMain( struct HINSTANCE__*, struct HINSTANCE__*, char*, int ) { 

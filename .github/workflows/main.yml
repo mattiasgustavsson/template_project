@@ -54,7 +54,7 @@ jobs:
         run: |
           clang++ source/main.c `sdl2-config --libs --cflags` -lGLEW -framework OpenGL -lpthread
   build-linux-gcc:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: install dependencies

@@ -15,6 +15,11 @@ From a Visual Studio Developer Command Prompt, do:
   cl source\main.c
 ```  
 
+Alternatively, you can use Tiny C Compiler:
+```
+tcc\tcc source\main.c
+```
+You can download tcc here: [tiny-c-compiler](https://github.com/mattiasgustavsson/template_project/releases/tag/tiny-c-compiler) for either 32 or 64 bit Windows. Unzip it so that the `tcc` folder in the zip file is at your repository root.
 
 ### Mac
 

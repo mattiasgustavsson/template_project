@@ -71,11 +71,11 @@ jobs:
       - uses: actions/checkout@v1
       - uses: robinraju/release-downloader@v1.2
         with:
-          repository: "mattiasgustavsson/dos-like"
-          tag: "wasm-env"
-          fileName: "dos-like-wasm-build-env-win.zip"
+          repository: "mattiasgustavsson/template_project"
+          tag: "wasm-build-tools"
+          fileName: "wasm-build-tools-win.zip"
       - name: install dependencies
-        run: 7z x dos-like-wasm-build-env-win.zip
-      - name: build sound
+        run: 7z x wasm-build-tools-win.zip
+      - name: build main
         run: |          
             wasm\node wasm\wajicup.js source/main.c main.html

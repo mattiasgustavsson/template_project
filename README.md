@@ -1,4 +1,5 @@
 ![build](https://github.com/mattiasgustavsson/template_project/workflows/build/badge.svg)
+![build](https://github.com/mattiasgustavsson/template_project/actions/workflows/main.yml/badge.svg)
 
 # template_project
 Basic setup for building something with app.h on Windows/Linux/Mac/Web

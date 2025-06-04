@@ -26,7 +26,7 @@ int app_proc( app_t* app, void* user_data ) {
 
 int main( int argc, char** argv ) {
     (void) argc, (void ) argv;
-    return app_run( app_proc, NULL, NULL, NULL, NULL );
+    return app_run( app_proc, NULL, NULL, NULL );
 }
 
 
@@ -45,13 +45,13 @@ int main( int argc, char** argv ) {
 #endif
 
 
-#define APP_IMPLEMENTATION
-#ifdef _WIN32 
+#define  APP_IMPLEMENTATION
+#if defined( _WIN32 )
     #define APP_WINDOWS
-#elif __wasm__
+#elif defined( __wasm__ )
     #define APP_WASM
-#else 
+#else
     #define APP_SDL
 #endif
-#define APP_LOG( ctx, level, message ) 
 #include "libs/app.h"
+

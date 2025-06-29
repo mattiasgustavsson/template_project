@@ -11,7 +11,7 @@ jobs:
       - uses: seanmiddleditch/gha-setup-vsdevenv@master
       - name: build main
         run: |
-          cl source/main.c
+          cl "source/main.c"
   build-windows-msvc-cpp:
     runs-on: windows-latest
     steps:
@@ -20,7 +20,7 @@ jobs:
       - uses: seanmiddleditch/gha-setup-vsdevenv@master
       - name: build main
         run: |
-          cl /Tp source/main.c
+          cl /Tp "source/main.c"
   build-windows-tcc:
     runs-on: windows-latest
     steps:
@@ -34,7 +34,7 @@ jobs:
         run: 7z x tcc-0.9.27-win64-bin.zip
       - name: build main
         run: |
-          tcc/tcc source/main.c
+          tcc/tcc "source/main.c"
   build-macos:
     runs-on: macOS-latest
     steps:
@@ -43,7 +43,7 @@ jobs:
         run: brew install sdl2 glew
       - name: build main
         run: |
-          clang source/main.c `sdl2-config --libs --cflags` -lGLEW -framework OpenGL -lpthread
+          clang source/main.c `sdl2-config --libs --cflags` -lGLEW -framework OpenGL -lpthread -I$(brew --prefix glew)/include
   build-macos-cpp:
     runs-on: macOS-latest
     steps:
@@ -52,7 +52,7 @@ jobs:
         run: brew install sdl2 glew
       - name: build main
         run: |
-          clang++ source/main.c `sdl2-config --libs --cflags` -lGLEW -framework OpenGL -lpthread
+          clang++ source/main.c `sdl2-config --libs --cflags` -lGLEW -framework OpenGL -lpthread -I$(brew --prefix glew)/include
   build-linux-gcc:
     runs-on: ubuntu-latest
     steps:
@@ -65,6 +65,18 @@ jobs:
       - name: build main
         run: |
           gcc source/main.c `sdl2-config --libs --cflags` -lGLEW -lGL -lm -lpthread
+  build-linux-gcc-cpp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -qq libsdl2-dev
+          sudo apt-get install -qq libglew-dev
+      - name: build main
+        run: |
+          gcc -xc++ source/main.c `sdl2-config --libs --cflags` -lGLEW -lGL -lm -lpthread
   build-wasm:
     runs-on: windows-latest
     steps:

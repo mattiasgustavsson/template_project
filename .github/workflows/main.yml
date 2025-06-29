@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build-windows-msvc:
-    runs-on: windows-2019
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
         # this runs vcvarsall for us, so we get the MSVC toolchain in PATH.
@@ -13,7 +13,7 @@ jobs:
         run: |
           cl source/main.c
   build-windows-msvc-cpp:
-    runs-on: windows-2019
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
         # this runs vcvarsall for us, so we get the MSVC toolchain in PATH.
@@ -22,10 +22,10 @@ jobs:
         run: |
           cl /Tp source/main.c
   build-windows-tcc:
-    runs-on: windows-2019
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: robinraju/release-downloader@v1.2
+      - uses: robinraju/release-downloader@v1
         with:
           repository: "mattiasgustavsson/tcc-build"
           tag: "tcc64"
@@ -66,10 +66,10 @@ jobs:
         run: |
           gcc source/main.c `sdl2-config --libs --cflags` -lGLEW -lGL -lm -lpthread
   build-wasm:
-    runs-on: windows-2019
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: robinraju/release-downloader@v1.2
+      - uses: robinraju/release-downloader@v1
         with:
           repository: "mattiasgustavsson/template_project"
           tag: "wasm-build-tools"
